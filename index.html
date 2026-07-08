@@ -1395,6 +1395,272 @@
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
   }
+
+  /* =============== CORRECCIÓN FINAL MOBILE: imágenes centradas + música apagada =============== */
+  #music-toggle{
+    display:flex !important;
+  }
+
+  #music-toggle:not(.playing){
+    box-shadow:none;
+  }
+
+  @media (max-width:700px){
+    html, body{
+      overflow-x:hidden;
+      width:100%;
+    }
+
+    body{
+      background-attachment:scroll;
+      padding-bottom:0;
+    }
+
+    #music-toggle{
+      top:10px;
+      right:10px;
+      z-index:1001;
+      padding:8px 13px;
+      min-height:36px;
+      font-size:12px;
+      display:flex !important;
+    }
+
+    .music-player{
+      top:54px;
+      right:10px;
+      left:auto;
+      bottom:auto;
+      width:min(270px, calc(100vw - 20px));
+      max-width:calc(100vw - 20px);
+      padding:12px;
+      border-radius:20px;
+      display:block;
+      opacity:0;
+      transform:translateY(-10px) scale(.94);
+      pointer-events:none;
+    }
+
+    .music-player.open{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      pointer-events:auto;
+    }
+
+    .mp-header{
+      margin-bottom:10px;
+      gap:9px;
+    }
+
+    .mp-disc{
+      width:36px;
+      height:36px;
+      font-size:16px;
+    }
+
+    .mp-artist{
+      font-size:9px;
+      letter-spacing:1px;
+    }
+
+    .mp-track{
+      font-size:14px;
+    }
+
+    .mp-controls{
+      gap:8px;
+      margin-bottom:10px;
+    }
+
+    .mp-btn{
+      width:34px;
+      height:34px;
+      font-size:13px;
+    }
+
+    .mp-btn.mp-play{
+      width:42px;
+      height:42px;
+      font-size:16px;
+    }
+
+    section{
+      min-height:100svh;
+      padding:86px 16px 92px;
+      overflow:hidden;
+    }
+
+    .dark-section,
+    .fortnite-section{
+      padding:88px 16px 96px;
+      min-height:auto;
+    }
+
+    .calculator-layout,
+    .fortnite-layout{
+      width:100%;
+      max-width:100%;
+      margin:0 auto;
+      grid-template-columns:1fr !important;
+      gap:28px;
+      justify-items:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .calculator-visual,
+    .fortnite-visual{
+      width:100%;
+      max-width:100%;
+      margin:0 auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:visible;
+    }
+
+    .calculator-visual{
+      padding-top:6px;
+    }
+
+    .calculator-visual svg{
+      width:min(292px, 78vw) !important;
+      max-width:78vw !important;
+      height:auto;
+      display:block;
+      margin:0 auto;
+      transform:rotate(-2deg) !important;
+      transform-origin:center center;
+    }
+
+    .fortnite-visual{
+      min-height:330px;
+      padding:0;
+    }
+
+    .fortnite-visual::before{
+      width:min(330px, 76vw);
+      height:min(330px, 76vw);
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+    }
+
+    .fortnite-visual img{
+      width:min(285px, 76vw) !important;
+      max-width:76vw !important;
+      max-height:46svh !important;
+      display:block;
+      margin:0 auto;
+      object-fit:contain;
+      transform:rotate(-3deg) !important;
+      transform-origin:center center;
+    }
+
+    .fortnite-visual img:hover{
+      transform:rotate(-2deg) scale(1.02) !important;
+    }
+
+    .reveal.slide-left{
+      transform:translateY(24px);
+    }
+
+    .reveal.slide-left.in-view{
+      transform:none;
+    }
+
+    .calculator-copy,
+    .fortnite-copy{
+      width:100%;
+      max-width:92vw;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      margin:0 auto;
+    }
+
+    .calculator-copy h2,
+    .fortnite-copy h2{
+      font-size:clamp(28px, 9vw, 40px);
+      line-height:1.12;
+      margin-bottom:12px;
+      text-align:center;
+    }
+
+    .calculator-copy p,
+    .fortnite-copy p,
+    .lead-text{
+      max-width:90vw;
+      font-size:15px;
+      line-height:1.68;
+      text-align:center;
+    }
+
+    .calc-eyebrow,
+    .fortnite-eyebrow,
+    .eyebrow{
+      text-align:center;
+      font-size:11px;
+      letter-spacing:2px;
+    }
+
+    .shiny-title{
+      max-width:92vw;
+      font-size:clamp(28px, 10vw, 42px);
+      line-height:1.12;
+    }
+
+    .cards-grid{
+      grid-template-columns:1fr;
+      width:100%;
+      max-width:92vw;
+      gap:16px;
+    }
+
+    .special-card{
+      padding:20px 18px;
+    }
+
+    .wish-text{
+      max-width:92vw;
+      font-size:clamp(22px, 7vw, 30px);
+      line-height:1.45;
+    }
+
+    .wish-form-card{
+      width:min(420px, 94vw);
+      padding:24px 18px 20px;
+    }
+
+    .hidden-message,
+    .final-message{
+      width:92vw;
+      max-width:92vw;
+    }
+
+    .hidden-message p,
+    .final-message p{
+      font-size:14.5px;
+      line-height:1.6;
+      padding:18px;
+    }
+  }
+
+  @media (max-width:390px){
+    .calculator-visual svg{
+      width:min(270px, 76vw) !important;
+    }
+
+    .fortnite-visual img{
+      width:min(260px, 74vw) !important;
+    }
+
+    .fortnite-visual{
+      min-height:305px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1427,15 +1693,15 @@
   El reproductor aparece abierto desde el inicio. Algunos navegadores no permiten
   reproducir audio con sonido hasta el primer toque/clic del usuario.
 -->
-<audio id="bgMusic" loop preload="auto" autoplay playsinline>
+<audio id="bgMusic" loop preload="metadata" playsinline>
   <source src="get-you.mp3" type="audio/mpeg">
 </audio>
 
-<button id="music-toggle" class="cute-btn small playing" aria-label="Abrir reproductor de música" aria-expanded="true">
+<button id="music-toggle" class="cute-btn small" aria-label="Abrir reproductor de música" aria-expanded="false">
   <span class="music-icon">♪</span> <span class="music-label">Música</span>
 </button>
 
-<div class="music-player open playing" id="musicPlayer" role="region" aria-label="Reproductor de música">
+<div class="music-player" id="musicPlayer" role="region" aria-label="Reproductor de música">
   <div class="mp-header">
     <div class="mp-disc">♪</div>
     <div class="mp-titles">
@@ -1445,7 +1711,7 @@
   </div>
   <div class="mp-controls">
     <button id="prevTrack" class="mp-btn" aria-label="Reiniciar canción">⏮</button>
-    <button id="playPause" class="mp-btn mp-play" aria-label="Reproducir o pausar">❚❚</button>
+    <button id="playPause" class="mp-btn mp-play" aria-label="Reproducir o pausar">▶</button>
     <button id="nextTrack" class="mp-btn" aria-label="Siguiente canción">⏭</button>
   </div>
   <div class="mp-volume">
@@ -2238,9 +2504,8 @@
 
   /* =====================================================
      REPRODUCTOR DE MÚSICA
-     Usa get-you.mp3. El botón de música se mantiene visible y el panel inicia
-     abierto. Si el navegador bloquea autoplay con sonido, no se muestra error:
-     la música se activa con el primer toque/clic general de la página.
+     Usa get-you.mp3, pero queda apagado al inicio. El botón "Música" solo abre
+     el panel; la canción suena únicamente cuando se presiona Play.
   ===================================================== */
   const bgMusic = document.getElementById('bgMusic');
   const musicToggle = document.getElementById('music-toggle');
@@ -2252,14 +2517,10 @@
   const mpTrack = document.getElementById('mpTrack');
   const musicIcon = musicToggle ? musicToggle.querySelector('.music-icon') : null;
 
-  let userPausedMusic = false;
-  let autoplayWasBlocked = false;
-
-  musicPanel.classList.add('open');
   bgMusic.volume = parseFloat(volumeControl.value || '0.6');
   bgMusic.muted = false;
-  bgMusic.autoplay = true;
   bgMusic.loop = true;
+  bgMusic.removeAttribute('autoplay');
 
   function setMusicUI(isPlaying){
     playPause.textContent = isPlaying ? '❚❚' : '▶';
@@ -2274,66 +2535,29 @@
   }
 
   async function playMusic(){
-    userPausedMusic = false;
-    bgMusic.muted = false;
-    bgMusic.volume = parseFloat(volumeControl.value || '0.6');
-
     try{
       await bgMusic.play();
-      autoplayWasBlocked = false;
       setMusicUI(true);
     }catch(error){
-      autoplayWasBlocked = true;
-      // No mostramos mensajes de error: mantenemos el reproductor bonito y listo.
       setMusicUI(false);
       mpTrack.textContent = 'Get You';
     }
   }
 
   function pauseMusic(){
-    userPausedMusic = true;
     bgMusic.pause();
     setMusicUI(false);
   }
 
-  function ensureMusicStarted(){
-    if (!userPausedMusic && bgMusic.paused) playMusic();
-  }
+  // Estado inicial apagado.
+  setMusicUI(false);
+  musicPanel.classList.remove('open');
+  if (musicToggle) musicToggle.setAttribute('aria-expanded', 'false');
 
-  // Reproductor abierto desde el inicio. Se intenta reproducir al cargar.
-  musicPanel.classList.add('open');
-  if (musicToggle) musicToggle.setAttribute('aria-expanded', 'true');
-  setMusicUI(true);
-
-  document.addEventListener('DOMContentLoaded', playMusic, { once:true });
-  window.addEventListener('load', playMusic, { once:true });
-  setTimeout(playMusic, 120);
-  setTimeout(ensureMusicStarted, 900);
-
-  // Respaldo para Chrome/Safari/Edge móvil: cualquier primer toque de la carta
-  // activa el audio sin tener que presionar el botón de música.
-  ['pointerdown','touchstart','keydown','click'].forEach((evt) => {
-    document.addEventListener(evt, ensureMusicStarted, { once:true, passive:true });
-  });
-
-  bgMusic.addEventListener('play', () => setMusicUI(true));
-  bgMusic.addEventListener('pause', () => {
-    setMusicUI(false);
-    if (!userPausedMusic && autoplayWasBlocked) {
-      setTimeout(ensureMusicStarted, 500);
-    }
-  });
-  bgMusic.addEventListener('ended', () => {
-    bgMusic.currentTime = 0;
-    ensureMusicStarted();
-  });
-
-  // El botón de música ahora solo abre/cierra el panel, no es necesario para iniciar.
   musicToggle.addEventListener('click', (event) => {
     event.stopPropagation();
     const open = musicPanel.classList.toggle('open');
     musicToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    ensureMusicStarted();
   });
 
   playPause.addEventListener('click', (event) => {
@@ -2356,7 +2580,13 @@
 
   volumeControl.addEventListener('input', () => {
     bgMusic.volume = parseFloat(volumeControl.value);
-    ensureMusicStarted();
+  });
+
+  bgMusic.addEventListener('play', () => setMusicUI(true));
+  bgMusic.addEventListener('pause', () => setMusicUI(false));
+  bgMusic.addEventListener('ended', () => {
+    bgMusic.currentTime = 0;
+    setMusicUI(false);
   });
 
   /* =====================================================
